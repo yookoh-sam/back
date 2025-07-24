@@ -1,10 +1,7 @@
 package mutsa.heeseo.store;
 
-import mutsa.heeseo.store.Store;
-import mutsa.heeseo.store.StoreService;
 import lombok.RequiredArgsConstructor;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

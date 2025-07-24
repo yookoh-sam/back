@@ -28,5 +28,9 @@ public class Review {
 
     private String content;
 
-
+    public Review(Store store, User user, String content) {
+        this.store = store;
+        this.user = user;
+        this.content = content;
+    }
 }

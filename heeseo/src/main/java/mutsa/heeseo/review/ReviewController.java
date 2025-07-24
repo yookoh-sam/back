@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ReviewController {
 
-    private ReviewService reviewService;
+    private final ReviewService reviewService;
 
 
     //리뷰 생성
@@ -24,8 +24,8 @@ public class ReviewController {
     //전체 리뷰리스트 조회
 
     @GetMapping("/store/{storeId}/reviews")
-    public ResponseEntity<List<ReviewResponse>> getAllReviews(@PathVariable Long storeId) {
-        List<ReviewResponse> reviews = reviewService.getAllReviewsByStoreId(storeId);
+    public ResponseEntity<ReviewListResponse> getAllReviews(@PathVariable Long storeId) {
+        ReviewListResponse reviews = reviewService.getAllReviewsByStoreId(storeId);
         return ResponseEntity.ok(reviews);
     }
 

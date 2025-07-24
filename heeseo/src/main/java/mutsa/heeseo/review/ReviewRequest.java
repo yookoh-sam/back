@@ -8,6 +8,5 @@ import lombok.Setter;
 @Setter
 public class ReviewRequest {
     private Long userId;
-    private Long storeId;
     private String content;
 }

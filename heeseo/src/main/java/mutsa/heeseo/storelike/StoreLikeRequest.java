@@ -11,7 +11,6 @@ import mutsa.heeseo.user.User;
 
 public class StoreLikeRequest {
 
-    private Store store;
-    private User user;
+    private Long userId;
 
 }

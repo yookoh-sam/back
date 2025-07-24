@@ -26,20 +26,18 @@ public class ReviewService {
         User user = userRepository.findById(request.getUserId())
                 .orElseThrow(() -> new RuntimeException("해당 유저를 찾을 수 없습니다: " + request.getUserId()));
 
-        Review review = new Review();
-        review.setStore(store);
-        review.setUser(user);
-        review.setContent(request.getContent());
+        Review review = new Review(store,user, request.getContent());
 
         Review saved = reviewRepository.save(review);
         return new ReviewResponse(saved);
     }
 
     // 특정 가게 리뷰 전체 조회
-    public List<ReviewResponse> getAllReviewsByStoreId(Long storeId) {
+    public ReviewListResponse getAllReviewsByStoreId(Long storeId) {
         List<Review> reviews = reviewRepository.findAllByStore_StoreId(storeId);
-        return reviews.stream()
+        List<ReviewResponse> reviewResponses = reviews.stream()
                 .map(ReviewResponse::new)
                 .collect(Collectors.toList());
+        return new ReviewListResponse(reviewResponses);
     }
 }

@@ -61,4 +61,7 @@ public class User implements UserDetails {
         this.nickname = nickname;
     }
 
+    public User(String nickname) {
+        this.nickname = nickname;
+    }
 }

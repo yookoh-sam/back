@@ -70,6 +70,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authz -> authz
                         // 인증 없이 접근 가능한 경로들
                         .requestMatchers(
+                                "/**",
                                 "/",                    // 메인 페이지
                                 "/login/**",            // 로그인 관련
                                 "/oauth2/**",          // OAuth2 관련
