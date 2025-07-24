@@ -20,6 +20,7 @@ public class UserController {
         return ResponseEntity.ok(savedUser);
     }
 
+
     // 유저 정보 불러오기 (id로 조회)
     @GetMapping("/{user_id}")
     public ResponseEntity<User> getUser(@PathVariable Long id) {

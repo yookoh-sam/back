@@ -1,14 +1,10 @@
 package mutsa.heeseo.store;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
 import java.util.List;
 
-public interface StoreRepository {
+public interface StoreRepository extends JpaRepository<Store, Long> {
 
-    List<Store> name(String name);
-
-    //매장 검색
-    List<Store> findbyName(String name);
-    
+    // 매장 이름으로 검색
+    List<Store> findByName(String name);
 }
