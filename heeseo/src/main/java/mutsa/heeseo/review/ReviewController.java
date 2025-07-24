@@ -19,8 +19,6 @@ public class ReviewController {
     public ResponseEntity<ReviewResponse> createReview(@PathVariable Long storeId,@RequestBody ReviewRequest request) {
         ReviewResponse response = reviewService.createReview(storeId, request);
         return ResponseEntity.ok(response);
-        reviewService.createReview(request);
-        return ResponseEntity.ok(new ReviewResponse());
     }
 
     //전체 리뷰리스트 조회

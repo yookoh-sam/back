@@ -1,15 +1,17 @@
 package mutsa.heeseo.review;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import lombok.*;
 import mutsa.heeseo.store.Store;
 import mutsa.heeseo.user.User;
 
 @Entity
+@Table(name="review")
+@Getter
+@Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Builder
 public class Review {
 
     @Id
@@ -25,4 +27,6 @@ public class Review {
     private Store store;
 
     private String content;
+
+
 }
