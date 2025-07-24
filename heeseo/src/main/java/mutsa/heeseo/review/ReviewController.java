@@ -14,9 +14,9 @@ public class ReviewController {
 
     private ReviewService reviewService;
 
-    @PostMapping("/store/{storeId}/reviews")
-    public ResponseEntity<ReviewResponse> createReview(@RequestBody ReviewRequest request) {
-        reviewService.createReview(request);
-    }
+//    @PostMapping("/store/{storeId}/reviews")
+//    public ResponseEntity<ReviewResponse> createReview(@RequestBody ReviewRequest request) {
+//        reviewService.createReview(request);
+//    }
 
 }
