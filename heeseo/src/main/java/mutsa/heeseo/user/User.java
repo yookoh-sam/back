@@ -23,7 +23,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Table(name="user")
 @Getter
 @Setter
-
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
