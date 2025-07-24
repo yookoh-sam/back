@@ -8,7 +8,6 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping ("store/{storeId}/reviews")
 
 public class ReviewController {
 
@@ -24,7 +23,7 @@ public class ReviewController {
 
     //전체 리뷰리스트 조회
 
-    @GetMapping
+    @GetMapping("/store/{storeId}/reviews")
     public ResponseEntity<List<ReviewResponse>> getAllReviews(@PathVariable Long storeId) {
         List<ReviewResponse> reviews = reviewService.getAllReviewsByStoreId(storeId);
         return ResponseEntity.ok(reviews);

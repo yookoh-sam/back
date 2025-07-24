@@ -1,6 +1,8 @@
 package mutsa.heeseo.review;
 
+
 import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import mutsa.heeseo.store.Store;
 import mutsa.heeseo.store.StoreRepository;
@@ -35,7 +37,7 @@ public class ReviewService {
 
     // 특정 가게 리뷰 전체 조회
     public List<ReviewResponse> getAllReviewsByStoreId(Long storeId) {
-        List<Review> reviews = reviewRepository.findAllByStoreId(storeId);
+        List<Review> reviews = reviewRepository.findAllByStore_StoreId(storeId);
         return reviews.stream()
                 .map(ReviewResponse::new)
                 .collect(Collectors.toList());
