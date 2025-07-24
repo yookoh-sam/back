@@ -10,4 +10,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ReviewListResponse {
     List<ReviewResponse> reviews;
+    int numOfReview;
 }

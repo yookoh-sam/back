@@ -6,8 +6,10 @@ import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import mutsa.heeseo.store.Store;
 import mutsa.heeseo.store.StoreRepository;
+import mutsa.heeseo.store.StoreResponse;
 import mutsa.heeseo.user.User;
 import mutsa.heeseo.user.UserRepository;
+import mutsa.heeseo.user.UserResponse;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -23,8 +25,10 @@ public class ReviewService {
         Store store = storeRepository.findById(storeId)
                 .orElseThrow(() -> new RuntimeException("해당 가게를 찾을 수 없습니다: " + storeId));
 
+
         User user = userRepository.findById(request.getUserId())
                 .orElseThrow(() -> new RuntimeException("해당 유저를 찾을 수 없습니다: " + request.getUserId()));
+
 
         Review review = new Review(store,user, request.getContent());
 
@@ -38,6 +42,9 @@ public class ReviewService {
         List<ReviewResponse> reviewResponses = reviews.stream()
                 .map(ReviewResponse::new)
                 .collect(Collectors.toList());
-        return new ReviewListResponse(reviewResponses);
+
+
+
+        return new ReviewListResponse(reviewResponses,reviewResponses.size());
     }
 }

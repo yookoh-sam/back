@@ -42,6 +42,7 @@ public class User implements UserDetails {
     private String nickname;
 
     private String socialId;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singletonList(new SimpleGrantedAuthority(role.name()));

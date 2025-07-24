@@ -11,17 +11,23 @@ public class UserResponse {
 
     private Long id;
     private String nickname;
+    private int score;
 
-    public UserResponse(User user) {
+    public UserResponse(User user, int score) {
 
         this.id = user.getUserId();
         this.nickname = user.getNickname();
-
+        this.score = score;
     }
 
 
-    public static UserResponse from(User user) {
-        return new UserResponse(user);
+    public UserResponse(User user) {
+        this.id = user.getUserId();
+        this.nickname = user.getNickname();
+    }
+
+    public static UserResponse from(User user, int score) {
+        return new UserResponse(user,score);
     }
 }
 

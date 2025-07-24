@@ -1,8 +1,11 @@
 package mutsa.heeseo.user;
 
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import mutsa.heeseo.userlike.UserLike;
+import mutsa.heeseo.userlike.UserlikeRepository;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,6 +14,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final UserlikeRepository userlikeRepository;
 
     //유저 생성
         public Long createUser(UserRequest userRequest) {
@@ -25,7 +29,8 @@ public class UserService {
         public UserResponse getUserById(Long id) {
             User user = userRepository.findById(id)
                     .orElseThrow(() -> new RuntimeException("유저가 조회되지 않습니다: " + id));
-            return UserResponse.from(user);
+            List<UserLike> byToUserUserId = userlikeRepository.findByToUser_UserId(id);
+            return UserResponse.from(user,byToUserUserId.size());
         }
 
 }
